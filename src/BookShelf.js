@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 class BookShelf extends Component {
 
   render() {
-    //ES6 estructuring 
+    //ES6 destructuring 
     const { shelfChange } = this.props
     return (
       <div className="bookshelf">

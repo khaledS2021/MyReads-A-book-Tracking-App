@@ -7,16 +7,17 @@ import propTypes from 'prop-types';
 class BookSearch extends Component {
 
     state = {
-        query: '',
+        query: "",
         bookResults: [],
-        
+
     }
 
     updateQuery = (query) => {
-        this.setState(() => ({
-            query: query
-        }))
-        BooksAPI.search(query).then((searchResult) => { console.log(searchResult)
+        this.setState({
+            query: query,
+            bookResults: [],
+        })
+        BooksAPI.search(query).then((searchResult) => {
             if (searchResult && searchResult.length > 0) {
                 for (let b = 0; b < searchResult.length; b++) {
                     for (let i = 0; i < this.props.books.length; i++) {
@@ -29,11 +30,11 @@ class BookSearch extends Component {
                 }
             }
         })
-        
+
     }
     render() {
         //ES6 estructuring 
-        const{query , bookResults} = this.state
+        const { query, bookResults } = this.state
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -66,9 +67,9 @@ class BookSearch extends Component {
 
 }
 //propTypes validations
-BookSearch.propTypes={
-    books:propTypes.array.isRequired,
-    shelfChange:propTypes.func.isRequired,
+BookSearch.propTypes = {
+    books: propTypes.array.isRequired,
+    shelfChange: propTypes.func.isRequired,
 }
 
 
