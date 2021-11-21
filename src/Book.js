@@ -35,7 +35,6 @@ class Book extends Component {
 //propTypes Validations
 
 Book.propTypes={
-    key:propTypes.number.isRequired,
     shelfChange:propTypes.func.isRequired,
     itemBook:propTypes.object.isRequired,
 }
