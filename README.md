@@ -1,3 +1,11 @@
+how to install the app:
+run the npm install commant in your terminal
+
+how to run the app:
+you can run yarn start or npm start to run the programe 
+
+the programe will automaticly run in your browser on http://localhost:3000 or in your local network on http://Your PC IP:3000  
+
 How to Use the App
  Books are sorted into three categories: Currently Reading, Want to Read and Read
 
