@@ -24,11 +24,11 @@ class BookSearch extends Component {
                         if (searchResult[b].id === this.props.books[i].id) {
                             const bookInShelfIndex = this.props.books.findIndex((book) => book.id === searchResult[b].id)
                             searchResult[b].shelf = this.props.books[bookInShelfIndex].shelf
-                            this.setState({ bookResults: searchResult })
+
                         }
                     }
                 }
-            }
+            } this.setState({ bookResults: searchResult })
         })
 
     }
