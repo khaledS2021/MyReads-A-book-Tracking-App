@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 const BooksApp = () => {
 
   let [books, setbooks] = useState([]);
-  let [flip, setflip] = useState([true]);
+  let [upState, setupState] = useState([true]);
 
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
@@ -33,8 +33,8 @@ const BooksApp = () => {
 
     BooksAPI.update(book, shelf);
 
-    //instant update the UI by flipping the filp state value
-    setflip(!flip)
+    //instant update the UI value
+    setupState(!upState);
 
   }
 
