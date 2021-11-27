@@ -13,7 +13,7 @@ class Book extends Component {
                         <div className="book-cover"
                         //fixing the error fires when the book doesn't have an image                       
                             style={{ width: 128, height: 193, backgroundImage: (itemBook.imageLinks && itemBook.imageLinks.smallThumbnail)?
-                                `url(${itemBook.imageLinks.smallThumbnail})`:'No Image' }}></div>
+                                `url(${itemBook.imageLinks.smallThumbnail})`:`http://via.placeholder.com/128x193?text=No%20Cover`}}></div>
 
                         <ShelfChanger
                             shelfChange={shelfChange}

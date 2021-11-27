@@ -15,6 +15,8 @@ class BooksApp extends Component {
   }
 
 
+
+
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({
@@ -49,6 +51,11 @@ class BooksApp extends Component {
 
 
   render() {
+    const shelves = [
+      { key: 'currentlyReading', title: 'Currently Reading' },
+      { key: 'wantToRead', title: 'Want To Read' },
+      { key: 'read', title: 'Read' }
+    ]
 
     return (
       <div className="app">
@@ -64,27 +71,14 @@ class BooksApp extends Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-              <BookShelf
-                //filtering every book with it's shelf name 
-                books={this.state.books.filter((book) => book.shelf === 'currentlyReading')}
-                className='bookshelf'
-                title='Currently Reading'
-                shelfChange={this.shelfChange}
-              />
-              <BookShelf
-                books={this.state.books.filter((book) => book.shelf === 'wantToRead')}
-                className='bookshelf'
-                title='Want To Read'
-                shelfChange={this.shelfChange}
-              />
-              <BookShelf
-                books={this.state.books.filter((book) => book.shelf === 'read')}
-                className='bookshelf'
-                title='Read'
-                shelfChange={this.shelfChange}
-              />
+              {shelves.map((shelv) =>
+                <BookShelf
+                  key={shelv.key}
+                  books={this.state.books.filter((book) => book.shelf === shelv.key)}
+                  className='bookshelf'
+                  title={shelv.title}
+                  shelfChange={this.shelfChange} />)}
             </div>
-
           </div>
         )} />
         {/**Using the Link component to navigate to search page */}
@@ -92,9 +86,7 @@ class BooksApp extends Component {
           to='/search'>Add a book</Link>
 
       </div>
-
     )
   }
-
 }
 export default BooksApp
