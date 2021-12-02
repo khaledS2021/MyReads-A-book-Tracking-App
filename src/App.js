@@ -1,20 +1,17 @@
 import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import BookShelf from './BookShelf'
-import BookSearch from './BookSearch'
+import MyShelfs from './MyShelfs'
+import BookSearch from './Search'
 import { Route, Link } from 'react-router-dom'
 
 class BooksApp extends Component {
-
 
 
   state = {
     books: [],
     upState: true,
   }
-
-
 
 
   componentDidMount() {
@@ -27,7 +24,7 @@ class BooksApp extends Component {
 
   shelfChange = (book, shelf) => {
     const { books, upState } = this.state
-    const bookIndex = books.findIndex((i) => i.id === book.id);
+    const bookIndex = books.findIndex((element) => element.id === book.id);
     const newBookList = books
     //checking the shelf of the book
     if (bookIndex === -1) {
@@ -72,7 +69,7 @@ class BooksApp extends Component {
             </div>
             <div className="list-books-content">
               {shelves.map((shelv) =>
-                <BookShelf
+                <MyShelfs
                   key={shelv.key}
                   books={this.state.books.filter((book) => book.shelf === shelv.key)}
                   className='bookshelf'

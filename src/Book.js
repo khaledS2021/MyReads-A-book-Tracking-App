@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ShelfChanger from "./ShelfChanger";
+import ChangerTool from "./ChangerTool";
 import propTypes from 'prop-types';
 
 class Book extends Component {
@@ -15,7 +15,7 @@ class Book extends Component {
                             style={{ width: 128, height: 193, backgroundImage: (itemBook.imageLinks && itemBook.imageLinks.smallThumbnail)?
                                 `url(${itemBook.imageLinks.smallThumbnail})`:`http://via.placeholder.com/128x193?text=No%20Cover`}}></div>
 
-                        <ShelfChanger
+                        <ChangerTool
                             shelfChange={shelfChange}
                             shelf={itemBook.shelf}
                             itemBook={itemBook}

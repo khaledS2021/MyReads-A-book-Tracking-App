@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import propTypes from 'prop-types';
 
-class ShelfChanger extends Component {
+class ChangerTool extends Component {
 
     render() {
 
@@ -28,10 +28,10 @@ class ShelfChanger extends Component {
 }
 
 //propTypes validations
-ShelfChanger.propTypes={
+ChangerTool.propTypes={
     shelfChange:propTypes.func.isRequired,
     shelf:propTypes.string.isRequired,
     itemBook:propTypes.object.isRequired,
 }
 
-export default ShelfChanger
+export default ChangerTool

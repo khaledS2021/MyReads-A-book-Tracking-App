@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Book from "./Book";
 import propTypes from 'prop-types';
 
-class BookShelf extends Component {
+class MyShelfs extends Component {
 
   render() {
-    //ES6 destructuring 
+    //ES6 distructuring 
     const { shelfChange } = this.props
     return (
       <div className="bookshelf">
@@ -30,9 +30,9 @@ class BookShelf extends Component {
 
 }
 //propTypes validations
-BookShelf.propTypes = {
+MyShelfs.propTypes = {
   books: propTypes.array.isRequired,
   shelfChange: propTypes.func.isRequired,
 }
 
-export default BookShelf
+export default MyShelfs

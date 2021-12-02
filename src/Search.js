@@ -4,20 +4,21 @@ import Book from "./Book";
 import * as BooksAPI from './BooksAPI'
 import propTypes from 'prop-types';
 
-class BookSearch extends Component {
+class Search extends Component {
 
     state = {
-        query: "",
+        Searchquery: "",
         bookResults: [],
 
     }
 
-    updateQuery = (query) => {
+    updateQuery = (Userquery) => {
         this.setState({
-            query: query,
+            Searchquery: Userquery,
             bookResults: [],
         })
-        BooksAPI.search(query).then((searchResult) => {
+        BooksAPI.search(Userquery).then((searchResult) => {
+            //i took this idea from the project walkthrough and i hasn't coppied it from anyone
             if (searchResult && searchResult.length > 0) {
                 for (let b = 0; b < searchResult.length; b++) {
                     for (let i = 0; i < this.props.books.length; i++) {
@@ -33,8 +34,8 @@ class BookSearch extends Component {
 
     }
     render() {
-        //ES6 estructuring 
-        const { query, bookResults } = this.state
+        //ES6 destructuring 
+        const { Searchquery, bookResults } = this.state
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -42,7 +43,7 @@ class BookSearch extends Component {
                     <Link className="close-search" to='/'>Close</Link>
                     <div className="search-books-input-wrapper">
                         <input type="text"
-                            value={query}
+                            value={Searchquery}
                             onChange={(event) => this.updateQuery(event.target.value)}
                             placeholder="Search by title or author" />
 
@@ -67,10 +68,10 @@ class BookSearch extends Component {
 
 }
 //propTypes validations
-BookSearch.propTypes = {
+Search.propTypes = {
     books: propTypes.array.isRequired,
     shelfChange: propTypes.func.isRequired,
 }
 
 
-export default BookSearch
+export default Search
